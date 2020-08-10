@@ -78,7 +78,7 @@ class XDWKWebViewController: BaseViewController {
         super.viewWillAppear(animated)
         // 添加观察者观察 webView 加载进度
         webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -205,6 +205,18 @@ extension XDWKWebViewController {
 
     /// 点击了关闭按钮
     @objc fileprivate func closeBarItemClick() {
+        // 显示启动广告
+        if RootManager.share.type == .advert {
+            let isLogined: Bool = AccountManager.share.isLogin
+            if isLogined {
+                RootManager.share.type = .main
+                //AppUtil.updateCurrentUserInfo()
+            } else {
+                RootManager.share.type = .login
+            }
+            return
+        }
+        // TODO: - 应考虑优化
         let popVC = navigationController?.popViewController(animated: true)
         if popVC == nil {
             dismiss(animated: true, completion: nil)

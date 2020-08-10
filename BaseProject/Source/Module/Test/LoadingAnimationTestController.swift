@@ -44,6 +44,10 @@ extension LoadingAnimationTestController {
         self.initialUI()
         self.initialDataSource()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
 
 }
 
@@ -120,7 +124,7 @@ extension LoadingAnimationTestController {
             self.stopLoading()
         }
     }
-    fileprivate func startLoading() -> Void {
+    internal override func startLoading() -> Void {
 
         // 旋转动画
         //self.imageView.layer.add(self.getRotateAnmation(), forKey: nil)
@@ -135,7 +139,7 @@ extension LoadingAnimationTestController {
 
 
     }
-    fileprivate func stopLoading() -> Void {
+    internal override func stopLoading() -> Void {
 
     }
 

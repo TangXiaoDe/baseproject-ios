@@ -11,7 +11,6 @@
 #define BaseProject_Bridging_Header_h
 
 
-#import <TCWebCodesSDK/TCWebCodesBridge.h>
 // CoverFlow
 #import "KKPagedFlowView.h"
 #import "iCarousel.h"

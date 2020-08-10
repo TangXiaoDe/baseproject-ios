@@ -288,14 +288,14 @@ extension RegisterView {
         // 腾讯防水墙
         let window = UIApplication.shared.keyWindow!
         let appId = AppConfig.share.third.tcCaptcha.registerId
-        TCWebCodesBridge.shared().loadTencentCaptcha(window, appid: appId) { (resultDic) in
-            if let result = Mapper<TCWebCodesResultModel>().map(JSONObject: resultDic), 0 == result.code {
-                // 发送验证码请求
-                self.sendSmsCodeRequest(account: account, ticket: result.ticket, randStr: result.randStr)
-            } else {
-                Toast.showToast(title: "prompt.webcode.failure".localized)
-            }
-        }
+//        TCWebCodesBridge.shared().loadTencentCaptcha(window, appid: appId) { (resultDic) in
+//            if let result = Mapper<TCWebCodesResultModel>().map(JSONObject: resultDic), 0 == result.code {
+//                // 发送验证码请求
+//                self.sendSmsCodeRequest(account: account, ticket: result.ticket, randStr: result.randStr)
+//            } else {
+//                Toast.showToast(title: "prompt.webcode.failure".localized)
+//            }
+//        }
     }
 
     /// 账号输入框输入监听

@@ -76,11 +76,10 @@ extension LoginRegisterController {
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShowNotifiationProcess(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHideNotifiationProcess(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -484,15 +483,15 @@ extension LoginRegisterController: UIScrollViewDelegate {
 // MARK: - <LoginViewProtocol>
 extension LoginRegisterController: LoginViewProtocol {
     func loginView(_ loginView: LoginView, didCliedkedLogin loginBtn: UIButton, account: String, password: String) -> Void {
-        // 腾讯防水墙
-        let appId: String = AppConfig.share.third.tcCaptcha.pwdLoginId
-        TCWebCodesBridge.shared().loadTencentCaptcha(self.view, appid: appId) { (resultDic) in
-            if let result = Mapper<TCWebCodesResultModel>().map(JSONObject: resultDic), 0 == result.code {
-                self.passwordLoginRequest(account: account, password: password, ticket: result.ticket, randStr: result.randStr)
-            } else {
-                Toast.showToast(title: "滑块验证失败\n请滑到指定位置，或检查你的网络")
-            }
-        }
+//        // 腾讯防水墙
+//        let appId: String = AppConfig.share.third.tcCaptcha.pwdLoginId
+//        TCWebCodesBridge.shared().loadTencentCaptcha(self.view, appid: appId) { (resultDic) in
+//            if let result = Mapper<TCWebCodesResultModel>().map(JSONObject: resultDic), 0 == result.code {
+//                self.passwordLoginRequest(account: account, password: password, ticket: result.ticket, randStr: result.randStr)
+//            } else {
+//                Toast.showToast(title: "滑块验证失败\n请滑到指定位置，或检查你的网络")
+//            }
+//        }
     }
     func loginView(_ loginView: LoginView, didCliedkedLogin loginBtn: UIButton, account: String, smsCode: String) -> Void {
         self.smsCodeLoginRequest(account: account, smsCode: smsCode)

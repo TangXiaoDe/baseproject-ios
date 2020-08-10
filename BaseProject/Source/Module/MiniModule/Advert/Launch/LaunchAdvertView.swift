@@ -11,10 +11,22 @@
 import UIKit
 import ChainOneKit
 
+protocol LaunchAdvertViewProtocol: class {
+    /// 跳过广告按钮点击回调
+    func advertView(_ advertView: LaunchAdvertView, didClickedSkip skipView: UIButton) -> Void
+    /// 倒计时结束回调
+    func didCountdownTimerEnd(in advertView: LaunchAdvertView) -> Void
+    /// 广告内容点击回调
+    func advertView(_ advertView: LaunchAdvertView, didClickedAdvert advertView: LaunchAdvertItemView, with model: AdvertModel) -> Void
+    
+}
+
 class LaunchAdvertView: UIView {
 
     // MARK: - Internal Property
 
+    weak var delegate: LaunchAdvertViewProtocol?
+    
     var models: [AdvertModel]? {
         didSet {
             self.setupModels(models)
@@ -165,7 +177,8 @@ extension LaunchAdvertView {
             return
         }
         if self.currentIndex > models.count - 1 {
-            self.dismiss()
+            //self.dismiss()
+            self.delegate?.didCountdownTimerEnd(in: self)
             return
         }
         let itemView = self.itemViews[self.currentIndex]
@@ -174,7 +187,8 @@ extension LaunchAdvertView {
         if model.alreadyTime == model.duration {
             // 到时，判断是否可切换，可切则切换
             if self.currentIndex >= models.count - 1 || self.currentIndex >= 2 {
-                self.dismiss()
+                //self.dismiss()
+                self.delegate?.didCountdownTimerEnd(in: self)
                 return
             }
             self.currentIndex += 1
@@ -210,45 +224,22 @@ extension LaunchAdvertView: LaunchAdvertItemViewProtocol {
     /// 点击了广告界面
     func didClickedAdert(in item: LaunchAdvertItemView) {
         guard let model = item.model else {
-            self.dismiss()
+            //self.dismiss()
+            self.delegate?.didCountdownTimerEnd(in: self)
             return
         }
-        if model.linkType == .outside {
-            var strUrl = model.link
-            if !strUrl.hasPrefix("http://") && !strUrl.hasPrefix("https://") {
-                strUrl = "http://" + model.link
-            }
-            let webVC = XDWKWebViewController.init(type: XDWebViwSourceType.strUrl(strUrl: strUrl))
-            let webNC = BaseNavigationController.init(rootViewController: webVC)
-            RootManager.share.rootVC.present(webNC, animated: false) {
-                self.dismiss()
-            }
-        } else if model.linkType == .inside {
-            switch model.inLinkType {
-            case .none:
-                break
-            case .activity:
-                // 屏蔽账号不进如邀请大赛
-                if AppConfig.share.shield.currentNeedShield {
-                    return
-                }
-//                // 进入邀请大赛需要登录
-//                if let tabbarVC = RootManager.share.showRootVC as? UITabBarController, let selectedNC = tabbarVC.selectedViewController as? UINavigationController {
-//                    let activityVC = InviteActivityHomeController.init(model: nil)
-//                    selectedNC.pushViewController(activityVC, animated: true)
-//                    self.dismiss()
-//                }
-            }
-        }
+        self.delegate?.advertView(self, didClickedAdvert: item, with: model)
     }
     /// 点击了跳转按钮
     func advertItem(_ item: LaunchAdvertItemView, didClickedSkip skipButton: UIButton) {
         guard let model = item.model else {
-            self.dismiss()
+            //self.dismiss()
+            self.delegate?.advertView(self, didClickedSkip: skipButton)
             return
         }
         if model.canSkip {
-            self.dismiss()
+            //self.dismiss()
+            self.delegate?.advertView(self, didClickedSkip: skipButton)
         }
     }
 }

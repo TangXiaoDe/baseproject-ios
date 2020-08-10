@@ -6,12 +6,23 @@
 //  Copyright © 2018 TangXiaoDe. All rights reserved.
 //
 //  根控管理器 - 所有的根控切换都应在这里处理
+//  注1：将启动广告也放置到RootType的管理中，避免广告页的各种问题
 
 /**
  根控管理方案：
  方案1：切换window的根控，即修改UIApplication.shared.keyWindow?.rootViewController；
  方案2：切换rootVC下的显示界面，即rootVC唯一，但其下的显示界面动态更换；
  这里采用方案2来实现，注意方案1在多个window下时需特别考虑；
+ **/
+
+/**
+ 思考1：启动页、引导页、需要用RootType来管理吗？
+ 思考2：启动广告可以用RootType来管理吗？
+ 
+ 
+ 过渡效果问题：通过RootType方式可兼容过渡效果，而Application.share.rootVC方式就不方便；
+ 
+ 
  **/
 
 
@@ -23,7 +34,9 @@ enum RootType {
     /// 启动，同启动页
     case launch
     /// 引导页，不是每次都展示
-    case guide
+    case guide      /// launchGuide
+    /// 启动广告
+    case advert     /// launchAdvert
     /// 登录页
     case login
     /// 主页
@@ -82,22 +95,6 @@ extension RootManager {
         self.authIllicitAlertShowing = false
     }
 
-    /// 显示启动页广告
-    func showLaunchAdvert() -> Void {
-        // 1. 获取启动广告
-        let adverts = DataBaseManager().advert.getAdverts(for: AdvertSpaceType.boot)
-        if adverts.isEmpty {
-            return
-        }
-        // 2. 显示启动广告
-        let advertView = LaunchAdvertView()
-        advertView.models = adverts
-        UIApplication.shared.keyWindow?.addSubview(advertView)
-        UIApplication.shared.keyWindow?.bringSubviewToFront(advertView)
-        advertView.frame = UIScreen.main.bounds
-        advertView.starAnimation()
-    }
-
 }
 
 // MARK: - Fileprivate Function
@@ -113,6 +110,8 @@ extension RootManager {
             rootVC = LaunchController()
         case .guide:
             rootVC = GuideController()
+        case .advert:
+            rootVC = LaunchAdvertController.init()
         case .login:
             rootVC = BaseNavigationController(rootViewController: LoginRegisterController())
         case .main:

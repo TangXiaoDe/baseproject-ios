@@ -13,7 +13,7 @@ import UIKit
 import ChainOneKit
 
 /// 实际的根控界面
-class RootViewController: UIViewController {
+class RootViewController: BaseViewController {
 
     /// 需要展示的根控界面
     var showRootVC: UIViewController = UIViewController() {
@@ -24,7 +24,7 @@ class RootViewController: UIViewController {
 
     /// 全局线程对象
     fileprivate var thread: Thread?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -38,7 +38,15 @@ class RootViewController: UIViewController {
         thread.start()
         self.thread = thread
     }
-
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // 第一次显示，获取系统配置，若失败，则显示系统配置失败界面
+        if 1 == self.didAppearTime {
+            self.getSystemConfig()
+        }
+    }
+    
+    
     fileprivate func setupRootVC(_ rootVC: UIViewController, oldValue: UIViewController) -> Void {
         if oldValue == rootVC {
             return
@@ -67,6 +75,13 @@ class RootViewController: UIViewController {
     }
     @objc fileprivate func action() -> Void {
         print("RootViewController action")
+    }
+    
+    /// 获取系统配置
+    fileprivate func getSystemConfig() -> Void {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 5.5) {
+            self.contentType = .error
+        }
     }
 
 }

@@ -43,6 +43,7 @@ extension LaunchController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -78,35 +79,33 @@ extension LaunchController {
     fileprivate func initialDataSource() -> Void {
         // 添加延迟切换
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + self.duration) {
+            let isFirst: Bool = AppConfig.share.internal.isFirstEnter
             if AppConfig.share.showTest {
                 self.enterTestPage()
             } else {
-                self.gotoNextPage()
+//                self.gotoNextPage(isFirst: isFirst)
+                RootManager.share.type = .advert
+            }
+            if isFirst {
+                VersionManager.share.updateSavedVersion()
             }
         }
     }
 
     /// 进入下一个界面
-    fileprivate func gotoNextPage() -> Void {
-        // 第一次，则进入引导页
-        let isFirst: Bool = AppConfig.share.internal.isFirstEnter
+    fileprivate func gotoNextPage(isFirst: Bool) -> Void {
+        // 第一次，则进入引导页 > 非点击通知启动且有启动广告时进入广告页 > 已登录则进入主页 > 进入登录页
+        let hasAdverts: Bool = !DataBaseManager().advert.getAdverts(for: AdvertSpaceType.boot).isEmpty
+        let isLogined: Bool = AccountManager.share.isLogin
         if isFirst {
             RootManager.share.type = .guide
-            VersionManager.share.updateSavedVersion()
-            return
-        }
-        // 非第一次，判断是否登录
-        let isLogined: Bool = AccountManager.share.isLogin
-        if isLogined {
+        } else if LaunchType.remote != AppConfig.share.internal.launch && hasAdverts {
+            RootManager.share.type = .advert
+        } else if isLogined {
             RootManager.share.type = .main
-//            UserNetworkManager.getCurrentUser { (_, _, _) in
-//            }
+            //AppUtil.updateCurrentUserInfo()
         } else {
             RootManager.share.type = .login
-        }
-        // 显示启动广告 - 非点击通知启动
-        if LaunchType.remote != AppConfig.share.internal.launch {
-            RootManager.share.showLaunchAdvert()
         }
     }
 

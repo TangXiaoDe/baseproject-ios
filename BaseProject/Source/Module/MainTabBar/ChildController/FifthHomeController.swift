@@ -1,21 +1,24 @@
 //
-//  ReportViewController.swift
+//  FifthHomeController.swift
 //  BaseProject
 //
-//  Created by 小唐 on 2020/8/10.
-//  Copyright © 2020 ChainOne. All rights reserved.
+//  Created by 小唐 on 2019/5/15.
+//  Copyright © 2019 ChainOne. All rights reserved.
 //
 
 import UIKit
 
-class ReportViewController: BaseViewController {
+class FifthHomeController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
 
     /*
     // MARK: - Navigation

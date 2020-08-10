@@ -138,17 +138,17 @@ extension SmsCodeLoginInputView {
         guard let account = self.accountField.text, !account.isEmpty else {
             return
         }
-        let window: UIWindow = UIApplication.shared.keyWindow!
-        // 腾讯防水墙
-        let appId = AppConfig.share.third.tcCaptcha.smsLoginId
-        TCWebCodesBridge.shared().loadTencentCaptcha(window, appid: appId) { (resultDic) in
-            if let result = Mapper<TCWebCodesResultModel>().map(JSONObject: resultDic), 0 == result.code {
-                // 发送验证码请求
-                self.sendSmsCodeRequest(account: account, ticket: result.ticket, randStr: result.randStr)
-            } else {
-                Toast.showToast(title: "滑块验证失败\n请滑到指定位置，或检查你的网络")
-            }
-        }
+//        let window: UIWindow = UIApplication.shared.keyWindow!
+//        // 腾讯防水墙
+//        let appId = AppConfig.share.third.tcCaptcha.smsLoginId
+//        TCWebCodesBridge.shared().loadTencentCaptcha(window, appid: appId) { (resultDic) in
+//            if let result = Mapper<TCWebCodesResultModel>().map(JSONObject: resultDic), 0 == result.code {
+//                // 发送验证码请求
+//                self.sendSmsCodeRequest(account: account, ticket: result.ticket, randStr: result.randStr)
+//            } else {
+//                Toast.showToast(title: "滑块验证失败\n请滑到指定位置，或检查你的网络")
+//            }
+//        }
     }
 
     /// 账号输入框输入值变更

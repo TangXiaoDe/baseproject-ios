@@ -1,5 +1,5 @@
 //
-//  ThirdHomeController.swift
+//  SecondHomeController.swift
 //  BaseProject
 //
 //  Created by 小唐 on 2019/5/15.
@@ -8,12 +8,16 @@
 
 import UIKit
 
-class ThirdHomeController: BaseViewController {
+class SecondHomeController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
     /*
