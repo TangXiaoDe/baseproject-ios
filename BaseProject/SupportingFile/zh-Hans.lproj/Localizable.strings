@@ -1,0 +1,113 @@
+/* 
+  Localizable.strings
+  BaseProject
+
+  Created by 小唐 on 2019/5/31.
+  Copyright © 2019 ChainOne. All rights reserved.
+*/
+
+
+// Tabbar名字
+"tabbar.imeet" = "链乎";
+"tabbar.meet" = "遇见";
+"tabbar.mining" = "挖矿";
+"tabbar.task" = "任务";
+"tabbar.square" = "广场";
+"tabbar.planet" = "星球";
+"tabbar.mine" = "我的";
+
+
+// Common
+"common.done" = "确定";
+"common.cancel" = "取消";
+"common.login" = "登录";
+"common.register" = "注册";
+"common.second" = "秒";
+"common.setting" = "设置";
+
+
+// Navbar-title
+"navbar.title.pwdlogin" = "登录";
+"navbar.title.smslogin" = "验证码登录";
+"navbar.title.register" = "注册";
+"navbar.title.completeinfo" = "完善资料";
+"navbar.title.setting" = "设置";
+"navbar.title.general" = "通用";
+"navbar.title.privacy" = "隐私";
+
+
+// Navbar-itemtitle
+//"navbar.item."
+
+
+// Placeholder-input
+"input.placeholder.smscode" = "请输入验证码";
+"input.placeholder.phone" = "请输入手机号";
+"input.placeholder.password" = "请输入密码";
+"input.placeholder.repassword" = "请再次输入密码";
+"input.placeholder.loginpwd.desc" = "请输入6-20位密码";
+"input.placeholder.register.invitecode" = "请输入邀请码(选填)";
+
+
+// SMSCode
+"smscode.send" = "获取验证码";
+"smscode.resend" = "重新获取";
+"smscode.countdown.sufix" = "秒后重发";
+
+
+// DoneBtn
+"donebtn.login" = "登录";
+"donebtn.register" = "立即注册";
+"donebtn.resetpwd" = "重置密码";
+
+
+// Account:Login、Register、Password
+"login.type.password" = "账号密码登录";
+"login.type.smscode" = "短信验证登录";
+"login.forgetpwd" = "忘记密码?";
+
+"register.agreement.agree" = "注册即代表同意";
+"register.agreement" = "《链乎用户服务协议》";
+
+"completeinfo.prompt.registersuccess" = "恭喜您，注册成功～";
+"completeinfo.prompt.sexchoose" = "你是男生还是女生？";
+
+
+// Mine
+"mine.homepage" = "个人主页";
+"mine.assetspage" = "我的资产";
+"mine.taskcenter" = "任务中心";
+"mine.powercenter" = "矿力中心";
+"mine.mycollection" = "我的收藏";
+"mine.invitefriend" = "邀请好友";
+"mine.businesscooperation" = "商务合作";
+"mine.setting" = "设置";
+"mine.inviteActivity" = "邀请大赛";
+
+
+// Setting
+"setting.personalinfo" = "个人资料";
+"setting.accountandsecurity" = "账号与安全";
+"setting.realname" = "实名认证";
+"setting.newmessageset" = "新消息设置";
+"setting.privacy" = "隐私";
+"setting.general" = "通用";
+"setting.helpcenter" = "帮助中心";
+"setting.aboutimeet" = "关于链乎";
+"setting.logout" = "退出登录";
+
+"setting.languageswitch" = "语言切换";
+"setting.fontsize" = "字体大小";
+"setting.chatbackground" = "聊天背景";
+"setting.photovideofile" = "图片、视频和文件";
+"setting.receivermode" = "听筒模式";
+"setting.clearcache" = "清理缓存";
+"setting.clearchathistory" = "清空聊天就";
+
+
+// Prompt
+"prompt.network.error" = "网络请求错误";
+"prompt.webcode.failure" = "滑块验证失败\n请滑到指定位置，或检查你的网络!";
+"prompt.blacklist.addsuccess" = "加入黑名单成功";
+"prompt.blacklist.removesuccess" = "已经从黑名单中移除";
+

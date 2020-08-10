@@ -1,0 +1,112 @@
+/* 
+  Localizable.strings
+  BaseProject
+
+  Created by 小唐 on 2019/5/31.
+  Copyright © 2019 ChainOne. All rights reserved.
+*/
+
+
+// Tabbar名字
+"tabbar.imeet" = "iMeet";
+"tabbar.meet" = "Meet";
+"tabbar.mining" = "Mining";
+"tabbar.task" = "Task";
+"tabbar.square" = "Square";
+"tabbar.planet" = "Planet";
+"tabbar.mine" = "Mine";
+
+
+// Common
+"common.done" = "Done";
+"common.cancel" = "Cancel";
+"common.login" = "Login";
+"common.register" = "Register";
+"common.second" = "s";
+"common.setting" = "Setting";
+
+
+// Navbar-title
+"navbar.title.pwdlogin" = "Login";
+"navbar.title.smslogin" = "SMSLogin";
+"navbar.title.register" = "Register";
+"navbar.title.completeinfo" = "Complete Info";
+"navbar.title.setting" = "Setting";
+"navbar.title.general" = "General";
+"navbar.title.privacy" = "Privacy";
+
+
+// Navbar-itemtitle
+//"navbar.item."
+
+
+// Placeholder-input
+"input.placeholder.smscode" = "Input SMSCode";
+"input.placeholder.phone" = "Input Phone Number";
+"input.placeholder.password" = "Input Password";
+"input.placeholder.repassword" = "ReInput Password";
+"input.placeholder.loginpwd.desc" = "6-20 length password";
+"input.placeholder.register.invitecode" = "Input InviteCode(Optional)";
+
+
+// SMSCode
+"smscode.send" = "SMSCode";
+"smscode.resend" = "ReSMSCode";
+"smscode.countdown.sufix" = "s ReSend";
+
+
+// DoneBtn
+"donebtn.login" = "Login";
+"donebtn.register" = "Register Now";
+"donebtn.resetpwd" = "Reset Password";
+
+
+// Account:Login、Register、Password
+"login.type.password" = "Password Login";
+"login.type.smscode" = "SMSCode Login";
+"login.forgetpwd" = "Forget Password?";
+
+"register.agreement.agree" = "Register means agree";
+"register.agreement" = "《iMeet User Agreement》";
+
+"completeinfo.prompt.registersuccess" = "Congratulations on your Successful Registration";
+"completeinfo.prompt.sexchoose" = "Are you a boy or a girl?";
+
+
+// Mine
+"mine.homepage" = "HomePage";
+"mine.assetspage" = "MyAssets";
+"mine.taskcenter" = "TaskCenter";
+"mine.powercenter" = "PowerCenter";
+"mine.mycollection" = "MyCollection";
+"mine.invitefriend" = "Invite Friend";
+"mine.businesscooperation" = "Business Cooperation";
+"mine.setting" = "Setting";
+"mine.inviteActivity" = "InviteActivity";
+
+
+// Setting
+"setting.personalinfo" = "Personal Info";
+"setting.accountandsecurity" = "Account and Security";
+"setting.realname" = "Real Name Verify";
+"setting.newmessageset" = "New Message";
+"setting.privacy" = "Privacy";
+"setting.general" = "General";
+"setting.helpcenter" = "Help Center";
+"setting.aboutimeet" = "About iMeet";
+"setting.logout" = "Logout";
+
+"setting.languageswitch" = "Language Switch";
+"setting.fontsize" = "Font Size";
+"setting.chatbackground" = "Chat Background";
+"setting.photovideofile" = "Photo、Video and File";
+"setting.receivermode" = "Receiver Mode";
+"setting.clearcache" = "Clear Cache";
+"setting.clearchathistory" = "Clear Chat History";
+
+
+// Prompt
+"prompt.network.error" = "Network Error!";
+"prompt.webcode.failure" = "Tencent WebCode Failure!";
+"prompt.blacklist.addsuccess" = "Add to BlackList Success";
+"prompt.blacklist.removesuccess" = "Remove from BlackList Success";

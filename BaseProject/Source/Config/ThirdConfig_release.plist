@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- 新浪微博 -->
+    <key>sinaweibo</key>
+    <dict>
+        <key>appId</key>
+        <string>732480598</string>
+        <key>appKey</key>
+        <string>51c1d72c618224a469531d39fa313ec7</string>
+        <key>redirectURL</key>
+        <string>https://sns.whalecloud.com/sina2/callback</string>
+    </dict>
+    <!-- 微信 -->
+    <key>wechat</key>
+    <dict>
+        <key>appId</key>
+        <string>wxcb480facccadf8d2</string>
+        <key>appKey</key>
+        <string>a48e4d66c147aee3032efbf3523b929e</string>
+        <key>universalLink</key>
+        <string>https://www.immeet.com/</string>
+    </dict>
+    <!-- QQ -->
+    <key>qq</key>
+    <dict>
+        <key>appId</key>
+        <string>1105978541</string>
+        <key>appKey</key>
+        <string>Q47tAluWzkd0v4Rp</string>
+    </dict>
+    <!-- Bugly 崩溃收集 -->
+    <key>bugly</key>
+    <dict>
+        <key>appId</key>
+        <string>f11599c9ff</string>
+        <key>appKey</key>
+        <string>bc903e13-5d74-4d12-bde8-6cf6c463bd97</string>
+    </dict>
+    <!-- 高德地图 -->
+    <key>amap</key>
+    <dict>
+        <key>appKey</key>
+        <string>62a5a0112e036ac8affc7a72456eaff6</string>
+    </dict>
+    <!-- 极光推送 -->
+    <key>jpush</key>
+    <dict>
+        <key>appKey</key>
+        <string>1481ed706ab412826d1fb8c5</string>
+    </dict>
+    <!-- 友盟统计 -->
+    <key>umeng</key>
+    <dict>
+        <key>appKey</key>
+        <string>5c769c35b465f59baa00052b</string>
+    </dict>
+    <!-- 腾讯防水墙 不同场景不同的key -->
+    <key>tccaptcha</key>
+    <dict>
+        <key>pwdLoginId</key>
+        <string>2069058021</string>
+        <key>smsLoginId</key>
+        <string>2088166362</string>
+        <key>registerId</key>
+        <string>2091630267</string>
+        <key>passwordId</key>
+        <string>2011238553</string>
+        <key>phoneBindId</key>
+        <string>2011238553</string>
+    </dict>
+    <!-- 环信 -->
+    <key>easemob</key>
+    <dict>
+        <key>appKey</key>
+        <string>1103190821047820#imeet</string>
+        <key>certName</key>
+        <string>iMeetAPNS</string>
+    </dict>
+    <!-- 有赞 -->
+    <key>youzan</key>
+    <dict>
+        <key>cliendId</key>
+        <string>000711ca7639ac976c</string>
+        <key>kdtId</key>
+        <string>42440305</string>
+    </dict>
+</dict>
+</plist>
